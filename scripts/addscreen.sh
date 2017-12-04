@@ -17,9 +17,9 @@ fi
 #If the display to add is LVDS1, ask via dmenu in relation to which display the adding shall occur
 if [ "$display" == "LVDS1" ];
 then
-	xrandr --output "$display" --auto --$1 $(xrandr | grep "mm x " | awk '{print $1}' | dmenu -p $1":")
+	xrandr --output "$display" --auto "--$1" $(xrandr | grep "mm x " | awk '{print $1}' | dmenu -p "$1:")
 else
-	xrandr --output "$display" --auto --$1 LVDS1
+	xrandr --output "$display" --auto "--$1" LVDS1
 fi
 
 #debug stuff
