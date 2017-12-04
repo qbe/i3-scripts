@@ -1,0 +1,16 @@
+#!/bin/bash
+
+for pid in $(pidof -x /bin/lockscreen);do
+	if [ "$pid" != "$$" ];then
+		exit 0
+		#lockscreen already running, exit
+	fi
+done
+
+val=$(cat /sys/class/backlight/intel_backlight/actual_brightness)
+echo 2 > /sys/class/backlight/intel_backlight/brightness
+i3lock -n & pid="$!"
+physlock -sm
+kill "$pid"
+echo "$val" > /sys/class/backlight/intel_backlight/brightness
+#replace intel_backlight with nv_backlight for discrete graphics setup
