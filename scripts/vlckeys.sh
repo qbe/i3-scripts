@@ -28,5 +28,6 @@ else
 	fi
 fi
 
-#vlc doesn't properly implement the mpris spec ! it resumes tracks if "previous" or "Next" are given and the track is paused ! aaaargh !
+#vlc doesn't properly implement the mpris spec !
+#it resumes tracks if "previous" or "Next" are given and the track is paused ! aaaargh !
 #had to bash-hack around it ._.
