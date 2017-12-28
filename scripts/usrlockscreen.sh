@@ -1,5 +1,8 @@
 #!/bin/bash
 
+gpgconf --kill gpg-agent
+#clear cached gpg passwords
+
 pactl set-source-mute 1 1
 #mutes the microphone
 
