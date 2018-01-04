@@ -3,7 +3,7 @@
 display="VGA1"
 #default display to add is VGA1
 
-xrandr --setprovideroutputsource nouveau Intel && display=$(xrandr | grep "mm x " | awk '{print $1}')
+xrandr --setprovideroutputsource nouveau Intel && display="$(xrandr | grep 'mm x ' | awk '{print $1}')"
 #set the display variable to a list of used displays
 
 

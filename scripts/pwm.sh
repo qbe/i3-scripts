@@ -5,7 +5,7 @@ activeid=$(xprop -root | awk '/_NET_ACTIVE_WINDOW\(WINDOW\)/{print $NF}')
 activetitle=$( xprop -id "$activeid" | awk '/WM_NAME/{$1=$2="";print}' | cut -d '"' -f2 | head --lines=1 )
 #get the window title of the currently active x window
 
-activehash=$( echo "$activetitle"$(pass show auto secret) | sha256sum | sed 's/ -//g;')
+activehash=$( echo "$activetitle""$(pass show auto secret)" | sha256sum | sed 's/ -//g;')
 #get the sha256-hash of the currently active x window title and appended to it the common auto/secret
 
 echo "$activeid"

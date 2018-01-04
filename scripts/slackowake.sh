@@ -9,7 +9,7 @@ sleep 2
 #  exec "$HOME/.config/i3/midorikill.sh" > /dev/null
 #the expect line used to be its own script
 
-expect -c "spawn ssh root@10.20.30.40 killall midori; expect 'assword:'; send 'lounge\r'; interact"
+expect -c "spawn ssh root@10.20.30.40 killall midori; expect 'assword:'; send 'lounge\\r'; interact"
 
 #uses expect to send the browser kill command via ssh
 

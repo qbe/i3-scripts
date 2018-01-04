@@ -17,8 +17,8 @@ dbus-send --print-reply --session --dest=org.mpris.MediaPlayer2.vlc \
 /bin/lockscreen
 #calls the main screen locking programm
 
-if [ "$status" != $( gdbus call --session --dest org.mpris.MediaPlayer2.vlc --object-path \
-/org/mpris/MediaPlayer2 --method org.freedesktop.DBus.Properties.Get org.mpris.MediaPlayer2.Player "PlaybackStatus") ];
+if [ "$status" != "$( gdbus call --session --dest org.mpris.MediaPlayer2.vlc --object-path \
+/org/mpris/MediaPlayer2 --method org.freedesktop.DBus.Properties.Get org.mpris.MediaPlayer2.Player 'PlaybackStatus')" ];
 then
 	dbus-send --print-reply --session --dest=org.mpris.MediaPlayer2.vlc \
 	/org/mpris/MediaPlayer2 "org.mpris.MediaPlayer2.Player.PlayPause"
