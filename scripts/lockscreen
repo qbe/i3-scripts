@@ -1,4 +1,5 @@
 #!/bin/bash
+#move this file to /bin/lockscreen
 
 for pid in $(pidof -x /bin/lockscreen);do
 	if [ "$pid" != "$$" ];then
