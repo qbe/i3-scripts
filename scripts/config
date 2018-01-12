@@ -92,7 +92,7 @@ bindsym Shift+XF86WebCam exec "~/.config/i3/screenshot.sh -window"
 #bindsym $mod+XF86Launch1 exec "systemctl hibernate"
 #already done by Fn+F4 (for some weird acpi-related reason)
 
-#reboot
+#systemctl settings
 bindsym $mod+End exec "~/.config/i3/sysmenu.sh"
 
 #suspend is triggered at lid-close
