@@ -73,12 +73,12 @@ update_stuff() {
 
 	if [ -e "/home/luhan/.config/i3/vlc.sock" ]; then
 		echo -e "\n" | socat UNIX-CLIENT:$HOME/.config/i3/vlc.sock STDIO > /dev/null;
-		title="$( echo -e get_title\\nget_length\\nget_time | socat UNIX-CLIENT:$HOME/.config/i3/vlc.sock STDIO | col -bx | tr '\n' ' ' | tr '\"' "'" )"
+		title="$( echo -e get_title\\nget_length\\nget_time | socat UNIX-CLIENT:$HOME/.config/i3/vlc.sock STDIO | col -bx | tr '\n' ' ' | tr '\"' "'" | tr '\\' '/' )"
 
 # YES, everything in that line needs to be exacly like that
 # "col" is needed to remove some weird control characters
 # tr is needed to remove newlines
-# and to escape double-quotes
+# and to escape double-quotes and backslashes
 	else
 		title=""
 	fi
