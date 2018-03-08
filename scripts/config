@@ -84,6 +84,9 @@ bindsym XF86AudioNext exec "~/.config/i3/vlckeys.sh Next"
 bindsym Shift+XF86AudioPrev exec "~/.config/i3/vlckeys.sh Back"
 bindsym Shift+XF86AudioNext exec "~/.config/i3/vlckeys.sh Forward"
 
+#reset pulseaudio bluetooth sink to reset latency
+bindsym Shift+XF86AudioPlay exec "~/.config/i3/btlatency.sh"
+
 #screenshot utility, saves screenshots in ~/Pictures/screenshots
 bindsym XF86WebCam exec "~/.config/i3/screenshot.sh"
 bindsym Shift+XF86WebCam exec "~/.config/i3/screenshot.sh -window"
