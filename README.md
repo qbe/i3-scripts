@@ -17,6 +17,7 @@ of the i3 window manager
 * usrlockscreen.sh: pauses vlc media player, invokes /bin/lockscreen, restores previous vlc media player status
 * lockscreen: exits if another instance is running, saves the screen bightness, blanks all screens with i3lock in another process (saving the process id), locks all ttys using physlock, kills the i3lock process, restores the brightness
 
+* btlatency.sh: resets the first active pulseaudio bluetooth sink to reset audio latency
 * vlckeys.sh: sends commands to vlc media player using dbus, invoke with one of {Back,Forward,PlayPause, ...}
 
 * slackowake.sh: sends a http get request to the SlackoMatic at METALAB, invokes midorikill.sh
