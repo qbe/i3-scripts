@@ -50,17 +50,18 @@ readable() {
 }
 
 update_stuff() {
-	local time=$(date +%s)
+	local time
+	time=$(date +%s)
 	local rx=0 tx=0 tmp_rx tmp_tx
 
 	for iface in $ifaces; do
-		read tmp_rx < "/sys/class/net/${iface}/statistics/rx_bytes"
-		read tmp_tx < "/sys/class/net/${iface}/statistics/tx_bytes"
+		read -r tmp_rx < "/sys/class/net/${iface}/statistics/rx_bytes"
+		read -r tmp_tx < "/sys/class/net/${iface}/statistics/tx_bytes"
 		rx=$(( rx + tmp_rx ))
 		tx=$(( tx + tmp_tx ))
 	done
 
-	local interval=$(( $time - $last_time ))
+	local interval=$(( time - last_time ))
 	if [ $interval -gt 0 ]; then
 		rate="$(readable $(( (rx - last_rx) / interval )))↓ $(readable $(( (tx - last_tx) / interval )))↑"
 	else
@@ -93,11 +94,11 @@ update_stuff() {
 
 # i might try to rearrange the json blocks to group them according to displayed content (network, music/sound, other stuff)
 
-i3status | (read line && echo "$line" && read line && echo "$line" && read line && update_stuff && echo "[{\"full_text\":\"${title}\" },{\"full_text\":\"${rate}\" },${line#\[}" && while :
+i3status | (read -r line && echo "$line" && read -r line && echo "$line" && read -r line && update_stuff && echo "[{\"full_text\":\"${title}\" },{\"full_text\":\"${rate}\" },${line#\[}" && while :
 #i3status | (read line && echo "$line" && read line && echo "$line" && read line && update_stuff && echo "[{\"full_text\":\"${rate}\" },${line#\[}" && while :
 #i3status | (read line && echo "$line" && read line && echo "$line" && read line && echo "$line" && update_rate && while :
 do
-	read line
+	read -r line
 	update_stuff
 	echo ",[{\"full_text\":\"${title}\" },{\"full_text\":\"${rate}\" },${line#,\[}" || exit 1
 #	echo ",[{\"full_text\":\"${rate}\" },${line#,\[}" || exit 1
