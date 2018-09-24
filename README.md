@@ -30,3 +30,7 @@ of the i3 window manager
 * swrapper.sh: advanced features for the i3bar, including currently playing vlc media element, and network speed
 
 * pwm.sh: password manager utiliy using pass
+
+### WARNING
+
+these scripts are currently under active developement, use at your own risk
