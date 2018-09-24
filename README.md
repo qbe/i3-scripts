@@ -6,7 +6,7 @@ of the i3 window manager
 * config: configuration file for the i3 window manager and therefore entry point for the scripts
 * ffserver.conf: configuration file for ffmpeg stream server for audio sharing
 
-* addscreen.sh: add screenspace using xrandr, invoke with one of {left-of, right-of, abovr, below, same-as}
+* addscreen.sh: add screenspace using xrandr, invoke with one of {left-of, right-of, above, below, same-as}
 * delscreen.sh: remove screenspace using xrandr and dmenu
 
 * bright.sh: set the screen brightness to the maximum value
